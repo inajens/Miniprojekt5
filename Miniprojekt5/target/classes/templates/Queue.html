@@ -2,9 +2,13 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>Lärarkön</title>
+    <script src="javascript.js"></script>
 </head>
 <body>
+<a href="/submissions" class="button">Ställ dig i kö</a>
+<br/>
+<br/>
 <h1>Nuvarande kö:</h1>
 <table style="width:50%">
     <tr>
@@ -16,6 +20,9 @@
         <td th:text="${queueitem.studentName}"></td>
         <td th:text="${queueitem.location}"></td>
         <td th:text="${queueitem.question}"></td>
+        <td> <form th:action="@{/delete/{id}/(id=${queueitem.id})}" method="post"><input type="submit" value="Ta bort"/></form></td>
+        <td><button onclick="myFunction()">Hjälp</button></td>
+        <td id="helpingnow">Får hjälp</td>
     </tr>
 </table>
 </body>
