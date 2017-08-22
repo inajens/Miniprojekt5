@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
 <body>
-
+<h1>Nuvarande kö:</h1>
+<table style="width:50%">
+    <tr>
+        <td>Elev</td>
+        <td>Rum</td>
+        <td>Ärende</td>
+    </tr>
+    <tr th:each="queueitem : ${queue}">
+        <td th:text="${queueitem.studentName}"></td>
+        <td th:text="${queueitem.location}"></td>
+        <td th:text="${queueitem.question}"></td>
+    </tr>
+</table>
 </body>
 </html>
