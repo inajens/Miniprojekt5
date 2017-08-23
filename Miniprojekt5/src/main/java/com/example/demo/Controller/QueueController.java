@@ -8,6 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Calendar;
 
 @Controller
@@ -18,10 +21,29 @@ public class QueueController {
 
 
     @ResponseBody
+    @GetMapping("/login")
+    public ModelAndView Index() {
+        return new ModelAndView("Index");
+    }
+
+    @PostMapping("/login")
+    public String verifyUser(HttpSession session, @RequestParam String username, @RequestParam String password) {
+        if (queueRepository.verifyUser(username,password)) {
+           session.setAttribute("user",username);
+           return "redirect:/queue";
+        }
+        return "redirect:/login";
+    }
+
     @GetMapping("/queue")
-    public ModelAndView Queue() {
-        return new ModelAndView("Queue")
-                .addObject("queue", queueRepository.getQueueItems());
+    public ModelAndView Queue(HttpSession session) {
+        if(session.getAttribute("user")!=null) {
+            return new ModelAndView("Queue")
+                    .addObject("queue", queueRepository.getQueueItems());
+        }
+        else {
+            return new ModelAndView ("Index");
+        }
     }
 
     @PostMapping("/delete/{id}")
@@ -31,8 +53,13 @@ public class QueueController {
     }
 
     @GetMapping("/submissions")
-    public ModelAndView Submissions() {
-        return new ModelAndView("Submissions");
+    public ModelAndView Submissions(HttpSession session) {
+        if(session.getAttribute("user") !=null) {
+            return new ModelAndView("Submissions");
+        }
+        else {
+            return new ModelAndView ("Index");
+        }
     }
 
     @PostMapping("/submissions")
@@ -52,6 +79,15 @@ public class QueueController {
     @PostMapping("/newuser")
     public String addUser(@RequestParam String studentName, @RequestParam String username, @RequestParam String password) {
         queueRepository.addUser(studentName, username, password);
-        return "redirect:/queue";
+        return "redirect:/login";
+    }
+
+    @GetMapping("/logout")
+    public ModelAndView logout(HttpSession session, HttpServletResponse res) {
+        session.invalidate();
+        Cookie cookie = new Cookie("jsessionid", "");
+        cookie.setMaxAge(0);
+        res.addCookie(cookie);
+        return new ModelAndView("Index");
     }
 }

@@ -4,9 +4,15 @@
     <meta charset="UTF-8"/>
     <title>Lärarkön</title>
     <script src="javascript.js"></script>
+    <link href="mystyle.css" rel="stylesheet" type="text/css" media="screen"/>
 </head>
 <body>
-<a href="/submissions" class="button">Ställ dig i kö</a>
+<form action="/submissions">
+    <input type="submit" value="Ställ dig i kö"/>
+</form>
+<form action="/logout">
+    <input type="submit" value="Logga ut"/>
+</form>
 <br/>
 <br/>
 <h1>Nuvarande kö:</h1>

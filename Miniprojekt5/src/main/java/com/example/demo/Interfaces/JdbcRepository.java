@@ -1,6 +1,7 @@
 package com.example.demo.Interfaces;
 
 import com.example.demo.Domain.QueueItem;
+import com.example.demo.Domain.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,7 +47,7 @@ public class JdbcRepository implements QueueRepository {
     @Override
     public void addUser(String studentName, String username, String password) {
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement("INSERT INTO User(studentName, username, password) VALUES (?,?,?)")) {
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO Users(studentName, username, password) VALUES (?,?,?)")) {
             ps.setString(1, studentName);
             ps.setString(2, username);
             ps.setString(3, password);
@@ -70,8 +71,47 @@ public class JdbcRepository implements QueueRepository {
         }
     }
 
+    @Override
+    public boolean verifyUser(String username, String password){
+        boolean verified=false;
+        try (Connection conn = dataSource.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT userid, studentName, username, password FROM Users")) {
+            List<Users> allUsers = new ArrayList<>();
+            while (rs.next()) allUsers.add(rsUsers(rs));
+            for (Users users : allUsers) {
+                if ((username.equals(users.username)) && (password.equals(users.password))) {
+                    verified=true;
+                    break;
+                }
+            }
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return verified;
+    }
+
+//    @Override
+//    public boolean verifyUser(String username, String password){
+//        boolean verified=false;
+//        List <Users> allUsers = getUsers();
+//        for (Users users : allUsers) {
+//            if ((username.equals(users.username)) && (password.equals(users.password))) {
+//                verified=true;
+//            }
+//            else {
+//                verified=false;
+//            }
+//        }
+//        return verified;
+//    }
+
     private QueueItem rsQueueItem(ResultSet rs) throws SQLException {
         return new QueueItem(rs.getLong("id"), rs.getString("studentName"), rs.getString("location"), rs.getString("question"));
+    }
+
+    private Users rsUsers(ResultSet rs) throws SQLException {
+        return new Users(rs.getLong("userid"), rs.getString("studentName"), rs.getString("username"), rs.getString("password"));
     }
 
 }
