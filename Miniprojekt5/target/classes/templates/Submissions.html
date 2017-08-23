@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Lärarkön</title>
     <script src="javascript.js"></script>
+    <link href="mystyle.css" rel="stylesheet" type="text/css" media="screen"/>
 </head>
 <body>
 <h1>Be om hjälp!</h1>
@@ -20,6 +21,9 @@
         <!--<input name="anyTeacher" type="radio"/> Vem som helst-->
         <br /><br />
         <input type="submit" value="Ställ dig i kön"/>
+    </form>
+    <form action="/queue">
+        <input type="submit" value="Avbryt"/>
     </form>
     <!--<a href="dbtest">Check database connectivity</a>-->
 </div>

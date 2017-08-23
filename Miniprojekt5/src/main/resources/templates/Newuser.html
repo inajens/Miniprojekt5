@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Registrering</title>
+    <script src="javascript.js"></script>
+    <link href="mystyle.css" rel="stylesheet" type="text/css" media="screen"/>
 </head>
 <body>
 <form action="/newuser" method="post">
     <input name="studentName" type="text" placeholder="För- och efternamn"/>
+    <br/>
     <input name="username" type="text" placeholder="Användarnamn"/>
+    <br/>
     <input name="password" type="password" placeholder="Lösenord"/>
     <br/><br/>
     <input type="submit" value="Registrera dig"/>
