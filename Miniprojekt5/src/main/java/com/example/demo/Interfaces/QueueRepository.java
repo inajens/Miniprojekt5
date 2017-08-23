@@ -10,6 +10,7 @@ public interface QueueRepository {
     void addItem(String studentName, String location, String question);
     List<QueueItem> getQueueItems();
     void deleteItem(int id);
+    void chooseItem(int id);
     void addUser(String studentName, String username, String password);
     //List<Users> getUsers();
     boolean verifyUser(String username, String password);

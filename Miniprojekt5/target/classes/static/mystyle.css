@@ -1,5 +1,41 @@
 h1 {
-    text-transform:uppercase;
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 16px black;
+    text-align: center;
+    font-size: 40px;
+    font-family: sans-serif;
+    padding-top: 0px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tablecontainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.awesomebuttons {
+    font-size: 10px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    margin: 2px;
+    text-transform: uppercase;
+    border: 1px solid black;
+    font-weight: 600;
+    background-color: transparent;
+    color: #000;
+}
+
+.awesomebuttons:hover {
+    background-color: black;
+    color: #fff;
+    /*animation: fadeinBG 0.5s, fadeinfont 0.5s;*/
 }
 
 /*#helpingnow {*/

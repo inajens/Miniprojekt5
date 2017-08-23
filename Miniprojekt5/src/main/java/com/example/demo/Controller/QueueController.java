@@ -52,6 +52,12 @@ public class QueueController {
         return "redirect:/queue";
     }
 
+    @PostMapping("/help/{id}")
+    public String RefreshStatus(@PathVariable int id) {
+        queueRepository.chooseItem(id);
+        return "redirect:/queue";
+    }
+
     @GetMapping("/submissions")
     public ModelAndView Submissions(HttpSession session) {
         if(session.getAttribute("user") !=null) {
