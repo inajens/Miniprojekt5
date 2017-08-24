@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <script src="javascript.js"></script>
-    <link href="mystyle.css" rel="stylesheet" type="text/css" media="screen"/>
+    <meta charset="UTF-8"/>
     <title>Login</title>
+    <!--<script src="javascript.js"></script>-->
+    <link href="mystyle.css" rel="stylesheet" type="text/css" media="screen"/>
 </head>
 <body>
-
-<h1>Logga in</h1>
-<form action="/login" method="post">
-    <input name="username" type="text" placeholder="Användarnamn"/>
-    <br/>
-    <input name="password" type="password" placeholder="Lösenord"/>
-    <br/><br/>
-    <input type="submit" value="Logga in"/>
-</form>
-<form action="/newuser">
-    <input type="submit" value="Registrera dig"/>
-</form>
+<div class="container">
+    <h1>Logga in</h1>
+    <div class="input">
+    <form action="/login" method="post">
+        <input name="username" type="text" placeholder="Användarnamn"/>
+        <br/>
+        <input name="password" type="password" placeholder="Lösenord"/>
+        <br/><br/>
+        <input type="submit" value="Logga in" class="awesomebuttons"/>
+    </form>
+    <form action="/newuser">
+        <input type="submit" value="Registrera dig" class="awesomebuttons"/>
+    </form>
+    </div>
+</div>
 </body>
 </html>

@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Lärarkön</title>
-    <script src="javascript.js"></script>
+    <!--<script src="javascript.js"></script>-->
     <link href="mystyle.css" rel="stylesheet" type="text/css" media="screen"/>
 </head>
 <body>
-<h1>Be om hjälp!</h1>
-
+<h1>Be om hjälp</h1>
 <div>
     <form action="/submissions" method="post">
         <input name="studentName" type="text" placeholder="Namn"/>
@@ -20,10 +19,10 @@
         <!--<input name="teacher2" type="radio"/> Junior-->
         <!--<input name="anyTeacher" type="radio"/> Vem som helst-->
         <br /><br />
-        <input type="submit" value="Ställ dig i kön"/>
+        <input type="submit" value="Ställ dig i kön" class="awesomebuttons"/>
     </form>
     <form action="/queue">
-        <input type="submit" value="Avbryt"/>
+        <input type="submit" value="Avbryt" class="awesomebuttons"/>
     </form>
     <!--<a href="dbtest">Check database connectivity</a>-->
 </div>
