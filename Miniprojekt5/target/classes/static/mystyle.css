@@ -18,6 +18,7 @@ h1 {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
 }
 
 .awesomebuttons {
@@ -32,10 +33,34 @@ h1 {
     color: #000;
 }
 
+
 .awesomebuttons:hover {
     background-color: black;
     color: #fff;
     /*animation: fadeinBG 0.5s, fadeinfont 0.5s;*/
+}
+
+td {
+    font-family: sans-serif;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 11px;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    text-align: center;
+}
+
+.tableheader > td {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+#submitbuttonsqueue {
+    display: inline;
 }
 
 /*#helpingnow {*/

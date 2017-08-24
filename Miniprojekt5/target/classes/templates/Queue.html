@@ -7,18 +7,20 @@
     <link href="mystyle.css" rel="stylesheet" type="text/css" media="screen"/>
 </head>
 <body>
+<div id="SubmitbuttonsQueue">
 <form action="/submissions">
     <input type="submit" value="Ställ dig i kö" class="awesomebuttons"/>
 </form>
 <form action="/logout">
     <input type="submit" value="Logga ut" class="awesomebuttons"/>
 </form>
+</div>
 <br/>
 <br/>
 <h1>Nuvarande kö</h1>
 <div class="tablecontainer">
 <table style="width:70%">
-    <tr>
+    <tr class="tableheader">
         <td>Elev</td>
         <td>Rum</td>
         <td>Ärende</td>
