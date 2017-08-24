@@ -2,23 +2,33 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
-    <title>Registrering</title>
+    <title>SeaQ - Academy kösystem</title>
     <!--<script src="javascript.js"></script>-->
     <link href="mystyle.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="https://fonts.googleapis.com/css?family=Allura" rel="stylesheet"/>
 </head>
 <body>
-<h1>Ny användare</h1>
-<form action="/newuser" method="post">
-    <input name="studentName" type="text" placeholder="För- och efternamn"/>
-    <br/>
-    <input name="username" type="text" placeholder="Användarnamn"/>
-    <br/>
-    <input name="password" type="password" placeholder="Lösenord"/>
-    <br/><br/>
-    <input type="submit" value="Registrera dig" class="awesomebuttons"/>
-</form>
-<form action="/login">
-    <input type="submit" value="Logga in" class="awesomebuttons"/>
-</form>
+    <h2>SeaQ</h2>
+<div class="container">
+    <div class="loginbox">
+        <h1>Ny användare</h1>
+        <div class="formcontainer">
+            <form action="/newuser" method="post">
+                <input name="studentName" type="text" placeholder="För- och efternamn" class="inputfield"/>
+                <br/>
+                <input name="username" type="text" placeholder="Användarnamn" class="inputfield"/>
+                <br/>
+                <input name="password" type="password" placeholder="Lösenord" class="inputfield"/>
+                <br/><br/>
+                <input type="submit" value="Registrera dig" class="awesomebuttons"/>
+            </form>
+        </div>
+        <div class="formcontainer">
+            <form action="/login">
+                <input type="submit" value="Avbryt" class="awesomebuttons"/>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
