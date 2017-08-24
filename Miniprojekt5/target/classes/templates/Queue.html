@@ -2,39 +2,56 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
-    <title>Lärarkön</title>
+    <title>SeaQ - Academy kösystem</title>
     <!--<script src="javascript.js"></script>-->
     <link href="mystyle.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="https://fonts.googleapis.com/css?family=Allura" rel="stylesheet"/>
 </head>
 <body>
-<div id="SubmitbuttonsQueue">
-<form action="/submissions">
-    <input type="submit" value="Ställ dig i kö" class="awesomebuttons"/>
-</form>
-<form action="/logout">
-    <input type="submit" value="Logga ut" class="awesomebuttons"/>
-</form>
+<div id="logout">
+    <h2>SeaQ</h2>
+    <form action="/logout">
+        <input type="submit" value="Logga ut" id="logoutbutton"/>
+    </form>
 </div>
 <br/>
 <br/>
-<h1>Nuvarande kö</h1>
-<div class="tablecontainer">
-<table style="width:70%">
-    <tr class="tableheader">
-        <td>Elev</td>
-        <td>Rum</td>
-        <td>Ärende</td>
-        <td>Status</td>
-    </tr>
-    <tr th:each="queueitem : ${queue}">
-        <td th:text="${queueitem.studentName}"></td>
-        <td th:text="${queueitem.location}"></td>
-        <td th:text="${queueitem.question}"></td>
-        <td th:text="${queueitem.status}"></td>
-        <td><form th:action="@{/delete/{id}/(id=${queueitem.id})}" method="post"><input type="submit" value="Ta bort" class="awesomebuttons"/></form></td>
-        <td><form th:action="@{/help/{id}/(id=${queueitem.id})}" method="post"><input type="submit" value="Hjälp eleven" class="awesomebuttons"/></form></td>
-    </tr>
-</table>
+<div class="queuecontainer">
+    <div class="tablecontainer">
+        <h1>Nuvarande kö</h1>
+        <br/>
+        <div class="queuebutton">
+            <form action="/submissions">
+                <input type="submit" value="Ställ dig i kö" id="newqueueitembutton"/>
+            </form>
+        </div>
+        <table>
+            <tr class="tableheader">
+                <td class="standard">Elev</td>
+                <td class="standard">Rum</td>
+                <td id="extrawide">Ärende</td>
+                <td class="standard">Status</td>
+            </tr>
+            <tr th:each="queueitem : ${queue}">
+                <td th:text="${queueitem.studentName}"></td>
+                <td th:text="${queueitem.location}"></td>
+                <td th:text="${queueitem.question}"></td>
+                <td th:text="${queueitem.status}"></td>
+                <td>
+                    <form th:action="@{/delete/{id}/(id=${queueitem.id})}" method="post"><input type="submit"
+                                                                                                value="Ta bort"
+                                                                                                class="awesomebuttons"/>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/help/{id}/(id=${queueitem.id})}" method="post"><input type="submit"
+                                                                                              value="Hjälp eleven"
+                                                                                              class="awesomebuttons"/>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 </body>
 </html>

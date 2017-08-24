@@ -2,24 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>Login</title>
+    <title>SeaQ - Academy kösystem</title>
     <!--<script src="javascript.js"></script>-->
     <link href="mystyle.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="https://fonts.googleapis.com/css?family=Allura" rel="stylesheet"/>
 </head>
 <body>
+    <h2>SeaQ</h2>
 <div class="container">
-    <h1>Logga in</h1>
-    <div class="input">
-    <form action="/login" method="post">
-        <input name="username" type="text" placeholder="Användarnamn"/>
-        <br/>
-        <input name="password" type="password" placeholder="Lösenord"/>
-        <br/><br/>
-        <input type="submit" value="Logga in" class="awesomebuttons"/>
-    </form>
-    <form action="/newuser">
-        <input type="submit" value="Registrera dig" class="awesomebuttons"/>
-    </form>
+    <div class="loginbox">
+        <div class="formcontainer">
+            <form action="/login" method="post">
+                <input name="username" type="text" placeholder="Användarnamn" class="inputfield"/>
+                <br/>
+                <input name="password" type="password" placeholder="Lösenord" class="inputfield"/>
+                <br/><br/>
+                <input type="submit" value="Logga in" class="awesomebuttons"/>
+            </form>
+        </div>
+        <div class="formcontainer">
+            <form action="/newuser">
+                <input type="submit" value="Ny användare" class="awesomebuttons"/>
+            </form>
+        </div>
     </div>
 </div>
 </body>

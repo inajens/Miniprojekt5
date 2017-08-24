@@ -2,29 +2,33 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
-    <title>Lärarkön</title>
+    <title>SeaQ - Academy kösystem</title>
     <!--<script src="javascript.js"></script>-->
     <link href="mystyle.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="https://fonts.googleapis.com/css?family=Allura" rel="stylesheet"/>
 </head>
 <body>
-<h1>Be om hjälp</h1>
-<div>
-    <form action="/submissions" method="post">
-        <input name="studentName" type="text" placeholder="Namn"/>
-        <input name="location" type="text" placeholder="Plats"/>
-        <br/><br />
-        <input name="question" type="text area" placeholder="Ärende"/>
-        <br/><br />
-        <!--<input name="teacher1" type="radio"/> Senior-->
-        <!--<input name="teacher2" type="radio"/> Junior-->
-        <!--<input name="anyTeacher" type="radio"/> Vem som helst-->
-        <br /><br />
-        <input type="submit" value="Ställ dig i kön" class="awesomebuttons"/>
-    </form>
-    <form action="/queue">
-        <input type="submit" value="Avbryt" class="awesomebuttons"/>
-    </form>
-    <!--<a href="dbtest">Check database connectivity</a>-->
+<h2>SeaQ</h2>
+<div class="container">
+    <div class="loginbox">
+        <h1>Nytt ärende</h1>
+        <div class="formcontainer">
+            <form action="/submissions" method="post">
+                <input name="studentName" type="text" placeholder="Namn" class="inputfield"/>
+                <br/>
+                <input name="location" type="text" placeholder="Plats" class="inputfield"/>
+                <br/>
+                <input name="question" type="text area" placeholder="Ärende" class="inputfield"/>
+                <br/><br/>
+                <input type="submit" value="Ställ dig i kö" class="awesomebuttons"/>
+            </form>
+        </div>
+        <div class="formcontainer">
+            <form action="/queue">
+                <input type="submit" value="Avbryt" class="awesomebuttons"/>
+            </form>
+        </div>
+    </div>
 </div>
 </body>
 </html>
